@@ -1,0 +1,3 @@
+- upgrade pillow from textsize to bbox (pillow 10)
+- get JSONParser to parse null as a python None value
+- quote displayed nicely

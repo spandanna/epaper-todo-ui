@@ -1,0 +1,3 @@
+waveshare-epaper # uses rpo.gpio - only installable on raspberry pi
+pillow
+requests

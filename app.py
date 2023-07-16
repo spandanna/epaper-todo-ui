@@ -78,6 +78,7 @@ class ImageDrawer:
         # self.draw.rectangle([(250, 10), (470, 270)])
         response = requests.get("https://zenquotes.io/api/today").json()[0]
         quote_words= response.get("q").split(" ")
+        logging.info(quote_words)
         
         lines = []
         cur_line = ""
@@ -145,8 +146,8 @@ class ToDoListDisplay:
 if __name__ == "__main__":
 
     try:
-        response = requests.get("http://192.168.0.4:5000/api/v1/users/1/todos?horizon=2")
-        # logging.info(response.content)
+        uid = sys.argv[1]
+        response = requests.get(f"http://192.168.0.4:8080/api/v1/users/{uid}/todos?horizon=1")
         display = ToDoListDisplay(response.content)
         display.build_todo_list()
         display.send_to_epd()
